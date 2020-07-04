@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+    <body>
+        <h1>Welcome to my weather app</h1>
+        <p>Please choose a city to show from a list below</p>
+        {% for city in cities %}
+            <a href="{{ url_for('weather', name=city) }}">{{ city }}</a>
+            <br>
+        {% endfor %}
+
+    </body>
+</html>

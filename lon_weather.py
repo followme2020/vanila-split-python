@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 import json
 import requests
 
@@ -7,26 +10,19 @@ london = response_london.json()
 lontext = london[0]['WeatherText']
 # print(type(lontext))
 print('The weather in London right now is ' + lontext)
+lonprectype = london[0]['PrecipitationType']
 lonprecip = london[0]['HasPrecipitation']
 # print(type(lonprecip))
 print("Any precipitation ")
 if lonprecip == True:
     print('Yes')
+    print(lonprectype)
 else:
     print("No")
-lonprectype = london[0]['PrecipitationType']
-# print(type(lonprectype))
-print('Precipitation type ')
-try:
-    if lonprectype in [str, list]:
-        print(lonprectype)
-except:
-    if lonprectype is None:
-        print("There is no precipitation")
 londaytime = london[0]['IsDayTime']
 # print(type(londaytime))
-print('Is it day time?')
-if londaytime is True:
+print('What time of day?')
+if londaytime:
     print("Day time")
 else:
     print("Night")
